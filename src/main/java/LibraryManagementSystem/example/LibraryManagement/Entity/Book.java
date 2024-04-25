@@ -1,6 +1,12 @@
 package LibraryManagementSystem.example.LibraryManagement.Entity;
 
+
 import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +27,13 @@ public class Book {
     @Column(name = "title")
     private String title;
 
+
 //    @JoinColumn(name = "author")
 //    private Author author;
+
+//     @Column(name = "author")
+//     private Author author;
+
 
     @Column(name = "isbn")
     private String isbn;
