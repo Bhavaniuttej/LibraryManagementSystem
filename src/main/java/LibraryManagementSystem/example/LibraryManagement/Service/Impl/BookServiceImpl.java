@@ -6,6 +6,8 @@ import LibraryManagementSystem.example.LibraryManagement.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,11 +32,18 @@ public class BookServiceImpl implements BookService
 
     @Override
     public Book saveBook(Book book) {
-        if(book != null || book == null){
+        if(book != null){
             book.setId(book.getId());
             book.setTitle(book.getTitle());
-            book.setIsbn(book.getIsbn());
-            book.setPublicationYear(book.getPublicationYear());
+            book.setIsbn_book(book.getIsbn_book());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(new Date());
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            Date dateWithoutTime = cal.getTime();
+            book.setPublicationYear(dateWithoutTime);
         }
 
         return bookRepository.save(book);

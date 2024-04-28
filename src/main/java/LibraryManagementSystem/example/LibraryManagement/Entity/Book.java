@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Optional;
 
 
 @Data
@@ -35,9 +36,12 @@ public class Book {
 //     private Author author;
 
 
-    @Column(name = "isbn")
-    private String isbn;
+    @Column(name = "internation_standard_book_number")
+    private String isbn_book;
 
     @Column(name = "publication_year")
     private Date publicationYear;
+
+
+
 }

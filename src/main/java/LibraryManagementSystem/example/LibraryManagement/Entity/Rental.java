@@ -1,14 +1,11 @@
 package LibraryManagementSystem.example.LibraryManagement.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @Data
@@ -18,13 +15,20 @@ import java.util.Date;
 @Table(name = "Rental")
 public class Rental {
     @Id
-    @Column()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "bookId")
-    private int bookId;
+    @ManyToOne
+    @JoinColumn(name = "bookId")
+    private Book bookId;
     @Column(name = "renterName")
     private String renterName;
     @Column(name = "rentalDate")
-    private String rentalDate;
-    private Date returnDate;
+    private LocalDate rentalDate;
+    @Column(name = "returnDate")
+    private LocalDate returnDate;
+
+
+//    public Long getBook() {
+//        return
+//    }
 }
