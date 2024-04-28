@@ -43,7 +43,7 @@ public class BookController {
                 throw new RuntimeException("Id with Book not Found");
             }
             book.setTitle(book.getTitle());
-            book.setIsbn(book.getIsbn());
+            book.setIsbn_book(book.getIsbn_book());
             book.setPublicationYear(book.getPublicationYear());
 
             bookService.saveBook(book);
@@ -63,7 +63,5 @@ public class BookController {
         return ResponseEntity.ok("Deleted Book Successfully");
 
     }
-
-
 
 }
